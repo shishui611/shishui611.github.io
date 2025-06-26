@@ -61,8 +61,20 @@
 		<!-- 51.LA 统计 -->
 		<script src="./js/51LA.js"></script>
 	</head>
+	<style>
+		#triangle-lost-in-space {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			z-index: 0;
+			pointer-events: none;
 
+		}
+	</style>
 	<body>
+		<canvas class="canvas-wrap" id="triangle-lost-in-space" resize="true"></canvas>
 		<!--加载动画-->
 		<div id="loading-box">
 			<div class="loading-left-bg"></div>
@@ -81,6 +93,7 @@
 		</div>
 		<section id="section" class="section">
 			<!-- 背景图片 -->
+
 			<style type="text/css">
 				body {
 					background: url("img/background1.webp") no-repeat center center fixed;
@@ -205,6 +218,10 @@
 							<a class="logo-text" id="logo-text-small">imsyy.top</a>
 						</div>
 						<div class="col right">
+							<div class="line">
+								<i class="fa-solid fa-link"></i>
+								<span class="line-text">工具</span>
+							</div>
 							<div class="main-right">
 								<!--功能区-->
 								<div class="row rightone" id="rightone">
@@ -225,6 +242,7 @@
 												</div>
 											</div>
 										</div>
+
 										<!--音乐-->
 										<div class="music" id="music">
 											<div class="music-all">
@@ -557,13 +575,8 @@
 			</main>
 			<!-- 版权信息 -->
 			<footer id="footer" class="fixed-bottom footer">
-				<div class="power">Copyright&nbsp;©&nbsp;<span id="power-year">2022</span>
-					<script>
-						document.write(' - ' + (new Date()).getFullYear())
-					</script>&nbsp;<a href="http://www.hsbupt.love/" id="power-text">水水超会玩的|Hs</a>&nbsp;&amp;&nbsp;
-					<!-- 以下信息请不要修改哦 -->
-					Made&nbsp;⚙Modified from&nbsp;<a href="/" target="_blank">imsyy</a>
-					🔒<a href="https://beian.miit.gov.cn/">暂未备案</a>
+				<div class="power">Hello，<span id="power-year">welcome</span>
+
 				</div>
 				<!-- 歌词显示 -->
 				<div id="lrc"></div>
@@ -589,6 +602,11 @@
 		<script type="text/javascript"
 			src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/bootstrap/5.1.0/js/bootstrap.min.js">
 		</script>
+
+
+
+		<script type="text/javascript" src="./js/paper-full.min.js"></script>
+		<script type="text/javascript" src="./js/canvas.js"></script>
 	</body>
 
 </html>

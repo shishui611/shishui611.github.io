@@ -94,16 +94,16 @@ setTimeout(function() {
 	$("#loading-text").html("字体及文件加载可能需要一定时间");
 }, 3000);
 
-// 新春灯笼 （ 需要时可取消注释 ）
-// new_element=document.createElement("link");
-// new_element.setAttribute("rel","stylesheet");
-// new_element.setAttribute("type","text/css");
-// new_element.setAttribute("href","./css/lantern.css");
+// 新春灯笼（ 需要时可取消注释）
+// new_element = document.createElement("link");
+// new_element.setAttribute("rel", "stylesheet");
+// new_element.setAttribute("type", "text/css");
+// new_element.setAttribute("href", "./css/lantern.css");
 // document.body.appendChild(new_element);
 
-// new_element=document.createElement("script");
-// new_element.setAttribute("type","text/javascript");
-// new_element.setAttribute("src","./js/lantern.js");
+// new_element = document.createElement("script");
+// new_element.setAttribute("type", "text/javascript");
+// new_element.setAttribute("src", "./js/lantern.js");
 // document.body.appendChild(new_element);
 
 //获取一言
@@ -444,6 +444,32 @@ $("#more").hover(
 		$("#close").css("display", "none");
 	}
 );
+
+// 初始化默认背景，设置为每日风景
+function initDefaultBg() {
+	let bg_img = getBgImg();
+
+	// 如果已有背景类型不是3，则修改为3
+	if (!bg_img || bg_img.type !== "4") {
+		bg_img = {
+			type: "4",
+			1: bg_img_preinstall[1] || "./img/background1.webp",
+			2: bg_img_preinstall[2],
+			3: bg_img_preinstall[3],
+			4: bg_img_preinstall[4],
+		};
+		setBgImg(bg_img);
+	}
+
+	// 应用背景图片（这里假设你有设置背景图片的函数，或直接写）
+	$("body").css("background-image", `url("${bg_img_preinstall[bg_img.type]}")`);
+	$("#bg").attr("src", bg_img_preinstall[bg_img.type]);
+}
+
+// 页面加载完后调用初始化背景
+window.addEventListener("load", () => {
+	initDefaultBg();
+});
 
 //屏蔽右键
 document.oncontextmenu = function() {
